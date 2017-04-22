@@ -1,0 +1,22 @@
+{
+  "name": "DoctorBott",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Keith Stedman <keithstedman@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "moment": "^2.18.1",
+    "jQuery": "^3.2.1"
+  }
+}
