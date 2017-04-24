@@ -1,23 +1,32 @@
 var DocBott = require('./../js/doctorbott.js').DocBott;
 var apiKeyDoctorBott = require('./../.env').apiKeyDoctorBott;
-var currentLocation = "45.542094,-122.9346037";
+//Portland Default Location
+currentLocation = "45.542094,-122.9346037";
+currentCity = "Portland";
 
 
 var displayResults = function(response, type) {
   console.log(response);
   if(type == "location") {
-    currentLocation = response;
+    currentLocation = response[0]+","+response[1];
+    currentCity = response[2];
+    console.log("currentLocation set: "+currentLocation);
+    $("#getLocation span").text(currentCity);
   }
   if(type == "doctors") {
     var result = response.data;
+    console.log("currentLocation set: "+currentLocation);
     result.forEach(function(item){
       $("#health-output").append();
       var doctorImg = item.profile.image_url;
       var doctorName = item.profile.title + " " +item.profile.first_name + " " + item.profile.last_name;
       var doctorBio = item.profile.bio;
       var doctorSpecialty = item.specialties[0].actor;
-      var doctorLocation = item.practices[0].visit_address.city;
-      var newDoctor = "<div class='doctor'><div class='docimg'><img src='"+doctorImg+"'></div><div class='title'><h1>"+doctorName+"</h1><h3>"+doctorSpecialty+" - "+doctorLocation+"</h3><span class='doctorBio'>"+doctorBio+"</span></div></div>";
+      // if(item.practices > 0){
+        var doctorLocation = item.practices[0].visit_address.city;
+      // }
+      var doctorId = item.npi;
+      var newDoctor = "<div class='doctor'><a class='doctorLink' href='"+doctorId+"'></a><div class='docimg'><img src='"+doctorImg+"'></div><div class='title'><span class'doctorName'>"+doctorName+"</span><span class='doctorSpecialty'>"+doctorSpecialty+" - "+doctorLocation+"</span><span class='doctorBio'>"+doctorBio+"</span></div></div>";
       $("#doctors").append(newDoctor);
     });
   }
@@ -26,10 +35,11 @@ var displayResults = function(response, type) {
 $(function() {
   console.log("doc rdy");
 
-  $("#getLocation").on('change',function(){
+  $("#getLocation").submit(function(){
+    event.preventDefault();
     var docBott = new DocBott();
     console.log("state change");
-    var zip = $("#getLocation").val();
+    var zip = $("#getLocation .zip").val();
     console.log(zip);
     docBott.getLocation(zip, displayResults);
   });
@@ -38,8 +48,9 @@ $(function() {
     $("#doctors").text("");
     event.preventDefault();
     console.log("find docs");
-      var docBott = new DocBott();
-      docBott.getDoctors(currentLocation, displayResults);
+    console.log("Doc for currentLocation: "+currentLocation);
+    var docBott = new DocBott();
+    docBott.getDoctors(currentLocation, displayResults);
   });
 
   $("#getPractices").click(function(){

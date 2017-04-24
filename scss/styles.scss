@@ -1,4 +1,53 @@
+//Clears and Resets
 h1,h2,h3 {padding: 0;margin: 0;}
+html {height:100%;font-family: helvetica;}
+body {height:100%;}
+main {height:90%;padding:20px;}
+
+a {color:#000;text-decoration: none;}
+a:visited {color:#000;text-decoration: none;}
+
+//Pages Styles
+
+@mixin clear {
+  &:before, &:after {
+    content:"";
+    width:100%;
+    display:block;
+    clear:both;
+  }
+}
+
+//Tag Styles
+html {background-color:#adf;}
+body {}
+main {margin:auto;@include clear;}
+
+header{font-family:helvetica;}
+.nav {float:left;width:15%;position: relative;}
+.nav img {width:100%;}
+.nav a {width:100%;height:100%;display:block;position: absolute;color:#c32da0;}
+header > h1 {margin-left:10px;margin-top:10px;display:inline-block;}
+header > h1 span {font-weight: 100;}
+
+.btn {padding:5%;border-radius: 5px;border:1px solid #adf;font-size: 1.2em;width:100%;background-color:rgba(255,255,255,.6);}
+.zip {width:89%;}
+.btn[type=submit]:hover {background-color:rgba(190,45,160,.5);}
+.btn[type=submit] {cursor: pointer;}
+
+/* Modules */
+#doctors {@include clear;}
+.doctor {cursor:pointer;@include clear;position: relative;margin-bottom: 2%;max-height:105px;overflow: hidden;border-radius: 5px;}
+.doctor:hover {background-color:rgba(255,255,255,.6);}
+.doctor .docimg {width:100px;height:100px;float:left;position: relative;border-radius: 50px;overflow: hidden;}
+.doctor img {position: absolute;width:100%;left:0;top:0;bottom:0;right:0;margin:auto;}
+.doctor .title {width:80%;float:left;margin-left:3%;}
+.doctor .doctorBio {display:block;height:38px;overflow: hidden;}
+
+#getLocation input {width:69%;float:left;}
+#getLocation input[type=submit] {width:20%;float:left;}
+#getLocation h3 {text-transform: uppercase;color:#555;font-weight: 300;}
+
 
 //Varibles
 //Css Media Breaks
@@ -19,34 +68,10 @@ h1,h2,h3 {padding: 0;margin: 0;}
 }
 
 @media screen and (max-width:479px) {
-  main {width:300px;}
+  main {width:96%;padding:0;}
+  .doctor {padding:2px;}
+  .doctor .title {width:68%;}
 }
 
-//Pages Styles
-
-@mixin clear {
-  &:before, &:after {
-    content:"";
-    width:100%;
-    display:block;
-    clear:both;
-  }
-}
-
-html {background-color:#adf;}
-body {}
-main {margin:auto;@include clear;background-color: rgba(255,255,255,.4);padding:20px;}
-.headerBtn {padding:10 15px; margin:auto;text-transform: uppercase; font-size:1.2em; background-color:#adf; border-radius: 3px; float:left; display:inline-block;}
-
-.category {padding:10px;border:1px solid #adf;}
-
-#doctors {@include clear;}
-
-.doctor {cursor:pointer;padding:10px 15px;@include clear;position: relative;margin-bottom: 2%;max-height:105px;overflow: hidden;}
-.doctor:hover {background-color:rgba(255,255,255,.6);}
-.doctor .docimg {width:100px;height:100px;float:left;position: relative;border-radius: 50px;overflow: hidden;}
-.doctor img {position: absolute;width:100%;left:0;top:0;bottom:0;right:0;margin:auto;}
-.doctor .title {width:80%;float:left;margin-left:3%;}
-.doctor .doctorBio {display:block;height:38px;overflow: hidden;}
 
 

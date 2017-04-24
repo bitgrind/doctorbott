@@ -9,20 +9,27 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   </head>
   <body>
+    <header>
+      <div class="nav">
+        <a href="#"></a>
+        <img src="/img/Better-Doctor-Logo.png">
+      </div>
+      <h1><a href="#">Better<span>Doctor</span></a></h1>
+    </header>
     <main>
-      <header>
-        <h1>Zoom Care Mobile</h1>
-      </header>
         <section>
-          <input id="getDoctors" type="submit" value="Get Doctors">
-          <input id="getPractices" type="submit" value="Get Practices">
-          <input id="getSpecialties" type="submit" value="Get Specialties">
-          <input id="getLocation" type="text" placeholder="Zip">
+          <!-- <input class="btn" id="getPractices" type="submit" value="Get Practices">
+          <input class="btn" id="getSpecialties" type="submit" value="Get Specialties"> -->
+          <form id="getLocation" action="#">
+            <input class="btn zip" type="text" placeholder="Zip">
+            <input class="btn" id="getLocation" type="submit" value="Go!">
+            <h3>Current City: <span>Portland</span></h3>
+          </form>
+          <input class="btn" id="getDoctors" type="submit" value="Get Doctors">
+        </section>
         <div id="health-output">
-          <h1>Mobile Health</h1>
           <div id="doctors" class=""></div>
         </div>
-      </section>
     </main>
     <footer></footer>
   </body>

@@ -20,7 +20,9 @@ DocBott.prototype.getLocation = function(zip, displayResults) {
     geocoder.geocode({ 'address': zip }, function(results, status){
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
-      var coordinates = latitude+","+longitude;
+      var city = results[0].address_components[1].long_name;
+      var coordinates = [latitude,longitude,city];
+      console.log(results);
       displayResults(coordinates, "location");
     });
 }
