@@ -12,9 +12,9 @@ var lib = require('bower-files')({
   "overrides":{
     "bootstrap" : {
       "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
+        // "less/bootstrap.less",
+        // "dist/css/bootstrap.css",
+        // "dist/js/bootstrap.js"
       ]
     }
   }
@@ -85,7 +85,7 @@ gulp.task('jshint', function(){
   .pipe(jshint.reporter('default'));
 });
 
-gulp.task('serve', ['build'], function() {
+gulp.task('serve',['build'], function() {
   browserSync.init({
     server: {
       baseDir: "./",
@@ -96,7 +96,7 @@ gulp.task('serve', ['build'], function() {
   gulp.watch(['js/*.js'], ['jsBuild'])
   gulp.watch(['bower.json'], ['bowerBuild']);
   gulp.watch(['*.html'], ['htmlBuild']);
-  gulp.watch(['scss/*.scss'], ['cssBuild']);
+  gulp.watch(['scss/styles.scss'], ['cssBuild']);
 });
 
 gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){

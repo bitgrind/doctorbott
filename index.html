@@ -3,23 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Zoome Care Mobile</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-min.js"></script>
     <link rel="stylesheet" href="build/css/vendor.css">
-    <script src="build/js/vendor.min.js"></script>
-    <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="build/css/styles.css">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   </head>
   <body>
-    <header>
-      <h1>Zoom Care Mobile</h1>
-    </header>
     <main>
-        <input id="getDoctors" type="submit" value="Get Doctors">
-        <input id="getIllness" type="submit" value="Get Illness">
-      <div id="health-output">
-        <h1>Mobile Health</h1>
-        <div></div>
-      </div>
+      <header>
+        <h1>Zoom Care Mobile</h1>
+      </header>
+        <section>
+          <input id="getDoctors" type="submit" value="Get Doctors">
+          <input id="getPractices" type="submit" value="Get Practices">
+          <input id="getSpecialties" type="submit" value="Get Specialties">
+          <input id="getLocation" type="text" placeholder="Zip">
+        <div id="health-output">
+          <h1>Mobile Health</h1>
+          <div id="doctors" class=""></div>
+        </div>
+      </section>
     </main>
     <footer></footer>
   </body>
+  <script src="build/js/vendor.min.js"></script>
+  <script type="text/javascript" src="build/js/app.js"></script>
 </html>

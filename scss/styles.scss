@@ -1,1 +1,52 @@
-main {width:90%;margin:auto;}
+h1,h2,h3 {padding: 0;margin: 0;}
+
+//Varibles
+//Css Media Breaks
+@media screen and (min-width: 1201px) {
+  main {width:1200px;}
+}
+
+@media screen and (min-width: 961px) and (max-width:1200px) {
+  main {width:900px;}
+}
+
+@media screen and (min-width: 960px) and (max-width:680px) {
+  main {width:680px;}
+}
+
+@media screen and (max-width: 679px) and (min-width:480px) {
+  main {width:480px;}
+}
+
+@media screen and (max-width:479px) {
+  main {width:300px;}
+}
+
+//Pages Styles
+
+@mixin clear {
+  &:before, &:after {
+    content:"";
+    width:100%;
+    display:block;
+    clear:both;
+  }
+}
+
+html {background-color:#adf;}
+body {}
+main {margin:auto;@include clear;background-color: rgba(255,255,255,.4);padding:20px;}
+.headerBtn {padding:10 15px; margin:auto;text-transform: uppercase; font-size:1.2em; background-color:#adf; border-radius: 3px; float:left; display:inline-block;}
+
+.category {padding:10px;border:1px solid #adf;}
+
+#doctors {@include clear;}
+
+.doctor {cursor:pointer;padding:10px 15px;@include clear;position: relative;margin-bottom: 2%;max-height:105px;overflow: hidden;}
+.doctor:hover {background-color:rgba(255,255,255,.6);}
+.doctor .docimg {width:100px;height:100px;float:left;position: relative;border-radius: 50px;overflow: hidden;}
+.doctor img {position: absolute;width:100%;left:0;top:0;bottom:0;right:0;margin:auto;}
+.doctor .title {width:80%;float:left;margin-left:3%;}
+.doctor .doctorBio {display:block;height:38px;overflow: hidden;}
+
+
