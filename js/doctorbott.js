@@ -1,13 +1,7 @@
 //Epicodus's App
 
 //Keys
-var apiKeyDoctorBott = require('./../.env').apiKeyDoctorBott;
-
-
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/practices?location=37.773,-122.413,10&skip=2&limit=10&user_key=' + apiKeyDoctorBott;
-
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,10&skip=2&limit=10&user_key=' + apiKeyDoctorBott;
-
+var apiKey = require('./../.env').apiKey;
 
 //constrcutor
 function DocBott() {
@@ -28,7 +22,7 @@ DocBott.prototype.getLocation = function(zip, displayResults) {
 }
 
 DocBott.prototype.getIllness = function() {
-  $.get('https://api.betterdoctor.com/2016-03-01/practices?location=37.773,-122.413,10&skip=2&limit=10&user_key=' + apiKeyDoctorBott)
+  $.get('https://api.betterdoctor.com/2016-03-01/practices?location=37.773,-122.413,10&skip=2&limit=10&user_key=' + apiKey)
     .then(function(response) {
       console.log("response"+response);
       displayIllness(response);
@@ -36,7 +30,7 @@ DocBott.prototype.getIllness = function() {
 }
 
 DocBott.prototype.getDoctors = function(currentLocation, displayResults) {
-  var urlRequest = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+currentLocation+',10&skip=2&limit=10&user_key=' + apiKeyDoctorBott;
+  var urlRequest = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+currentLocation+',10&skip=2&limit=10&user_key=' + apiKey;
   console.log("get doctors backend "+urlRequest);
   $.get(urlRequest)
     .then(function(response) {
