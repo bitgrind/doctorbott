@@ -1,5 +1,4 @@
 var DocBott = require('./../js/doctorbott.js').DocBott;
-var apiKey = require('./../.env').apiKey;
 //Portland Default Location
 currentLocation = "45.542094,-122.9346037";
 currentCity = "Portland";

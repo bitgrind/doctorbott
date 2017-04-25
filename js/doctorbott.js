@@ -1,7 +1,7 @@
 //Epicodus's App
 
 //Keys
-var apiKey = require('./../.env').apiKey;
+var apiKey = require('../.env').apiKey;
 
 //constrcutor
 function DocBott() {
